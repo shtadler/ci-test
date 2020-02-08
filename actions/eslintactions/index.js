@@ -50,8 +50,7 @@ class Linter {
   execute() {
     if (this.getRules) {
       const engine = new eslint.CLIEngine({
-        rules: this.rules,
-        ignorePath:process.cwd()+'/.eslintignore'
+        rules: this.rules
       })
 
     const errors = engine.executeOnFiles(this.getFilesForCheck())
