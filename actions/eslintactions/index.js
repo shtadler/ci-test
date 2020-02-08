@@ -55,7 +55,7 @@ class Linter {
       })
 
     const errors = engine.executeOnFiles(this.getFilesForCheck())
-    core.setFailed(errors)
+    core.setFailed(JSON.stringify(errors))
     
       //logic for eslint
 
