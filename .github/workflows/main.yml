@@ -1,18 +1,10 @@
-name: CI
-
-on: [push]
-
+name: Lint
+on: pull_request
 jobs:
-  my_cool_job:
-
+  eslint:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    # - name: Use Node.js ${{ matrix.node-version }}
-    #   uses: actions/setup-node@v1
-    #   with:
-    #     node-version: ${{ matrix.node-version }}
-    # - run: npm install
-    - name: Hello world action step
-      uses: ./actions/hello
+      - uses: actions/checkout@v1
+      - uses: hallee/eslint-action@master
+        with:
+          repo-token: ${{secrets.GITHUB_TOKEN1}}
