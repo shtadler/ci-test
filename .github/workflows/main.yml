@@ -15,4 +15,5 @@ jobs:
     #     node-version: ${{ matrix.node-version }}
     # - run: npm install
     - name: Hello world action step
-      uses: ./actions/hello
+    - name: lint action step
+      uses: ./actions/eslintactions 
