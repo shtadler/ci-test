@@ -1,5 +1,6 @@
 const eslint = require("eslint");
 // const github = require('@actions/github');
+const core  = require("@actions/core")
 
 const fakeData = {
   "after": "9f94be55fc934cf2d674a40b03979a584a848e80",
@@ -54,7 +55,7 @@ class Linter {
       })
 
     const errors = engine.executeOnFiles(this.getFilesForCheck())
-    console.log(process.cwd());
+    core.setFailed(errors)
     
       //logic for eslint
 
