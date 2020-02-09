@@ -10,4 +10,4 @@ jobs:
         uses: ./actions/set-hello
         id: hello
       - name: Show message
-        run: echo 'message 123'
+        run: echo 'message ${{ steps.hello.outputs.coll_message }}'
