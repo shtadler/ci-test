@@ -9,5 +9,5 @@ jobs:
       - name: Set Hello
         uses: ./actions/set-hello
         id: hello
-      - name: Message
-        run: echo 'MESSAGE!!! --- ${{ steps.hello.outputs.cool_message }}.'
+      # - name: Message
+      #   run: echo 'MESSAGE!!! --- ${{ steps.hello.outputs.cool_message }}.'
