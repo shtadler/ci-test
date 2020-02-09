@@ -19,4 +19,4 @@ jobs:
           SLACK_AVATAR: repository # Optional. can be (repository, sender, an URL) (defaults to webhook app avatar)
         uses: Ilshidur/action-slack@master
         with:
-          args: 'A new commit has been pushed.' # Optional
+          args: '${{github.actor}} напушил вот сюда ${{github.repository}}' # Optional
