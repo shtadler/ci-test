@@ -9,3 +9,5 @@ jobs:
       - name: Set Hello
         uses: ./actions/set-hello
         id: hello
+      - name: Show message
+        run: echo 'message 123'
