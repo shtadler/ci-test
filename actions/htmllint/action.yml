@@ -1,0 +1,5 @@
+name: 'HTMLlint'
+description: 'Lint html'
+runs:
+  using: 'node12'
+  main: './index.js'

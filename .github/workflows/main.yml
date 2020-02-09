@@ -11,3 +11,12 @@ jobs:
         id: hello
       - name: Show message
         run: echo 'message ${{ steps.hello.outputs.coll_message }}'
+      - name: Slack notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: ThisIsMyUsername # Optional. (defaults to webhook app)
+          SLACK_CHANNEL: general # Optional. (defaults to webhook)
+          SLACK_AVATAR: repository # Optional. can be (repository, sender, an URL) (defaults to webhook app avatar)
+        uses: Ilshidur/action-slack@master
+        with:
+          args: 'A new commit has been pushed.' # Optional
