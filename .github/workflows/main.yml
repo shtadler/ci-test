@@ -11,6 +11,8 @@ jobs:
         id: hello
       - name: Show message
         run: echo 'message ${{ steps.hello.outputs.coll_message }}'
+      - name: ESLint
+        uses: ./actions/eslintactions
       - name: Slack notification
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
