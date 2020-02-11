@@ -1,4 +1,4 @@
-name: Lint
+name: Check codestyle
 on: [push, pull_request]
 jobs:
   eslint:
@@ -19,4 +19,4 @@ jobs:
           SLACK_AVATAR: repository # Optional. can be (repository, sender, an URL) (defaults to webhook app avatar)
         uses: Ilshidur/action-slack@master
         with:
-          args: '${{github.actor}} создал реквест ${{github.head_ref}} ${{github.repository}} bbbb ${{toJson(github)}}' # Optional
+          args: '${{github.actor}} создал реквест ${{github.html_url}}' # Optional
