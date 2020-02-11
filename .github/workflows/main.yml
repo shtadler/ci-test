@@ -18,7 +18,7 @@ jobs:
       #   env:
       #     MY_SECRET: ${{ secrets.DOES_NOT_EXIST }}
       - name: Slack notification
-        if: env.SLACK_WEBHOOK
+        if: !!env.SLACK_WEBHOOK
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: ThisIsMyUsername # Optional. (defaults to webhook app)
