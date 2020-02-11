@@ -1,6 +1,6 @@
-function qqq() {
-  return 1
+function qqq () {
+  return 1;
 }
-qqq()
-console.log('dog')
-qqq()
+qqq();
+console.log('dog');
+qqq();
