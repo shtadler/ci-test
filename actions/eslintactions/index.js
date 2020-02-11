@@ -33,33 +33,25 @@ class Linter {
   constructor() {
     this.filesForCheck = [];
   }
-  createHeaders(token) {
-    const headers = {
-      'Content-Type': 'application/json',
-      Accept: 'application/vnd.github.antiope-preview+json',
-      Authorization: `Bearer ${token}`,
-      'User-Agent': 'eslint-action'
-    }
-    return headers
-  }
 
   addRules(rules) {
     this.rules = rules
   }
 
   execute() {
-    if (this.getRules) {
+    if (this.getRules()) {
       const engine = new eslint.CLIEngine({
         rules: this.rules
       })
-
-    const errors = engine.executeOnFiles(this.getFilesForCheck())
-    core.setFailed(JSON.stringify(errors))
-    
+      core.startGroup('Do some function')
+      const errors = engine.executeOnFiles(this.getFilesForCheck())
+      core.setFailed(JSON.stringify(errors))
+      core.endGroup()
       //logic for eslint
 
       return true
     }
+
     return " No rules for executing"
   }
 
@@ -85,6 +77,6 @@ linter.addRules({
   "semi": ["error", "always"],
   "quotes": ["error", "double"]
 })
-linter.addFilesForCheck(".");
+linter.addFilesForCheck("*.js");
 linter.execute()
 
