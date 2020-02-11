@@ -11,7 +11,7 @@ jobs:
       - name: ESLint
         run: npx eslint "**/*.js" --format codeframe
       - name: echo
-        run: echo toJson(github)
+        run: echo ${{toJson(github)}}
       - name: Slack notification
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
