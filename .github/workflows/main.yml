@@ -1,7 +1,13 @@
 name: Check codestyle
 on: [push, pull_request]
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - review
 jobs:
-  eslint:
+  Linting:
     runs-on: ubuntu-latest
     steps:
       - name: Setup
@@ -19,4 +25,4 @@ jobs:
           SLACK_AVATAR: repository # Optional. can be (repository, sender, an URL) (defaults to webhook app avatar)
         uses: Ilshidur/action-slack@master
         with:
-          args: '${{github.actor}} создал реквест ${{github.event.pull_request.html_url}}' # Optional
+          args: 'Person: ${{github.actor}};  PR action: ${{github.event}};   ```URL```: ${{github.event.pull_request.html_url}}'
