@@ -10,6 +10,7 @@ jobs:
         run: npx stylelint "**/*.(sa|sc|c)ss"
       - name: ESLint
         run: npx eslint "**/*.js" --format codeframe
+      - name: echo
         run: echo toJson(github)
       - name: Slack notification
         env:
