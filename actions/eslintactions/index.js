@@ -43,10 +43,10 @@ class Linter {
       const engine = new eslint.CLIEngine({
         rules: this.rules
       })
-      core.startGroup('Do some function')
-      const errors = engine.executeOnFiles(this.getFilesForCheck())
-      core.setFailed(JSON.stringify(errors))
-      core.endGroup()
+
+    const errors = engine.executeOnFiles(this.getFilesForCheck())
+    core.setFailed(JSON.stringify(errors))
+    
       //logic for eslint
 
       return true
