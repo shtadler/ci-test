@@ -13,6 +13,7 @@ jobs:
         run: echo 'message ${{ steps.hello.outputs.coll_message }}'
       - name: ESLint
         run: npx eslint "*.js" --format codeframe
+        id: eslint
       - name: Slack notification
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
