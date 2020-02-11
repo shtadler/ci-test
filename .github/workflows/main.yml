@@ -10,11 +10,17 @@ jobs:
         run: npx stylelint "**/*.(sa|sc|c)ss"
       - name: ESLint
         run: npx eslint "**/*.js" --format codeframe
+
+      # - run: |
+      #       if [ "$MY_SECRET" != "" ]; then
+      #           echo WOOHOO
+      #       fi
+      #   env:
+      #     MY_SECRET: ${{ secrets.DOES_NOT_EXIST }}
       - name: Slack notification
         if: ${{secrets.SLACK_WEBHOOK1}}
         env:
-          # SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_WEBHOOK: ""
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK1 }}
           SLACK_USERNAME: ThisIsMyUsername # Optional. (defaults to webhook app)
           SLACK_CHANNEL: general # Optional. (defaults to webhook)
           SLACK_AVATAR: repository # Optional. can be (repository, sender, an URL) (defaults to webhook app avatar)
