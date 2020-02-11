@@ -1,8 +1,0 @@
-name: 'qqq'
-description: 'Greet someone and record the time'
-outputs:
-  coll_message: # id of output
-    description: 'The time we greeted you'
-runs:
-  using: 'node12'
-  main: './index.js'
