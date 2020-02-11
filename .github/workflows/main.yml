@@ -11,7 +11,7 @@ jobs:
       - name: ESLint
         run: npx eslint "**/*.js" --format codeframe
       - name: Slack notification
-        if: secrets.SLACK_WEBHOOK1
+        if: ${{secrets.SLACK_WEBHOOK1}}
         env:
           # SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_WEBHOOK: ""
