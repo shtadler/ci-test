@@ -1,5 +1,5 @@
 name: Lint
-on: push
+on: [push, pull_request]
 jobs:
   eslint:
     runs-on: ubuntu-latest
@@ -10,9 +10,8 @@ jobs:
         run: npx stylelint "**/*.(sa|sc|c)ss"
       - name: ESLint
         run: npx eslint "**/*.js" --format codeframe
-      - name: echo
-        run: echo ${{toJson(github)}}
       - name: Slack notification
+        if: github.event_name == 'pull_request'
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: ThisIsMyUsername # Optional. (defaults to webhook app)
@@ -20,4 +19,4 @@ jobs:
           SLACK_AVATAR: repository # Optional. can be (repository, sender, an URL) (defaults to webhook app avatar)
         uses: Ilshidur/action-slack@master
         with:
-          args: '${{github.actor}} напушил вот сюда ${{github.repository}}' # Optional
+          args: '${{github.actor}} создал реквест ${{github.head_ref}} ${{github.repository}} bbbb ${{toJson(github)}}' # Optional
